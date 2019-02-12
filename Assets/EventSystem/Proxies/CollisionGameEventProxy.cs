@@ -6,22 +6,16 @@ using UnityEngine.Events;
 
 namespace DHEventSystem.Proxies
 {
-    public class IntGameEventProxy : MonoBehaviour, IEventListener<int>
+    public class CollisionGameEventProxy : MonoBehaviour, IEventListener<Collision>
     {
         [Serializable]
-        public class Event : UnityEvent<int>
+        public class Event : UnityEvent<Collision>
         {
         }
 
-        [SerializeField] private IntGameEvent gameEvent;
+        [SerializeField] private CollisionGameEvent gameEvent;
 
         [SerializeField] private Event OnGameEventTriggered;
-
-        private void OnValidate()
-        {
-            if (gameEvent != null)
-                gameEvent.AddListener(this);
-        }
 
         private void OnEnable()
         {
@@ -33,7 +27,7 @@ namespace DHEventSystem.Proxies
             gameEvent.RemoveListener(this);
         }
 
-        public void OnEventRaised(int parameter)
+        public void OnEventRaised(Collision parameter)
         {
             OnGameEventTriggered.Invoke(parameter);
         }

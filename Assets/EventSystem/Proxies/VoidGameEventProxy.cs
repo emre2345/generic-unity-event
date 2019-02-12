@@ -1,21 +1,15 @@
-using System;
-using DHEventSystem.BaseClasses;
+using BaseClasses.VoidEvents;
 using DHEventSystem.GameEvents;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace DHEventSystem.Proxies
 {
-    public class IntGameEventProxy : MonoBehaviour, IEventListener<int>
+    public class VoidGameEventProxy : MonoBehaviour, IEventListener
     {
-        [Serializable]
-        public class Event : UnityEvent<int>
-        {
-        }
+        [SerializeField] private VoidGameEvent gameEvent;
 
-        [SerializeField] private IntGameEvent gameEvent;
-
-        [SerializeField] private Event OnGameEventTriggered;
+        [SerializeField] private UnityEvent onGameEventTriggered;
 
         private void OnValidate()
         {
@@ -33,9 +27,9 @@ namespace DHEventSystem.Proxies
             gameEvent.RemoveListener(this);
         }
 
-        public void OnEventRaised(int parameter)
+        public void OnEventRaised()
         {
-            OnGameEventTriggered.Invoke(parameter);
+            onGameEventTriggered.Invoke();
         }
     }
 }

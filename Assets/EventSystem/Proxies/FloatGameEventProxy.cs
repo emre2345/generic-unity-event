@@ -1,8 +1,10 @@
 using System;
+using DHEventSystem.BaseClasses;
+using DHEventSystem.GameEvents;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace EventSystem.Proxies
+namespace DHEventSystem.Proxies
 {
     public class FloatGameEventProxy : MonoBehaviour, IEventListener<float>
     {

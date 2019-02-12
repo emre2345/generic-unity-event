@@ -6,14 +6,14 @@ using UnityEngine.Events;
 
 namespace DHEventSystem.Proxies
 {
-    public class IntGameEventProxy : MonoBehaviour, IEventListener<int>
+    public class StringGameEventProxy : MonoBehaviour, IEventListener<string>
     {
         [Serializable]
-        public class Event : UnityEvent<int>
+        public class Event : UnityEvent<string>
         {
         }
 
-        [SerializeField] private IntGameEvent gameEvent;
+        [SerializeField] private StringGameEvent gameEvent;
 
         [SerializeField] private Event OnGameEventTriggered;
 
@@ -33,7 +33,7 @@ namespace DHEventSystem.Proxies
             gameEvent.RemoveListener(this);
         }
 
-        public void OnEventRaised(int parameter)
+        public void OnEventRaised(string parameter)
         {
             OnGameEventTriggered.Invoke(parameter);
         }
