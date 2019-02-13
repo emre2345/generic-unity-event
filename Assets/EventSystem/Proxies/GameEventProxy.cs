@@ -1,11 +1,13 @@
-using BaseClasses.VoidEvents;
-using DHEventSystem.GameEvents;
+using System;
+using DHEventSystem.BaseClasses;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace DHEventSystem.Proxies
 {
-    public class VoidGameEventProxy : MonoBehaviour, IEventListener
+    public abstract class GameEventProxy<GameEventType, GameEventParameterType> : MonoBehaviour,
+        IEventListener<GameEventParameterType>
+        where GameEventType : GameEvent<GameEventParameterType>
     {
         [Header("Parameters")] [SerializeField]
         private float delay = 0;
@@ -13,20 +15,22 @@ namespace DHEventSystem.Proxies
         [SerializeField] private int eventCountToTrigger = 1;
         [SerializeField] private bool raiseOnce = false;
 
-        [SerializeField] private VoidGameEvent gameEvent;
+        [Space]
+        [SerializeField] private GameEventType gameEvent;
 
-        [SerializeField] private UnityEvent onGameEventTriggered;
         private int eventRepeatCount;
 
         private void OnValidate()
         {
-            if (gameEvent != null)
+            if(gameEvent != null)
                 gameEvent.AddListener(this);
         }
 
         private void OnEnable()
         {
             gameEvent.AddListener(this);
+
+            eventRepeatCount = eventCountToTrigger;
         }
 
         private void OnDisable()
@@ -34,7 +38,7 @@ namespace DHEventSystem.Proxies
             gameEvent.RemoveListener(this);
         }
 
-        public void OnEventRaised()
+        public void OnEventRaised(GameEventParameterType parameter)
         {
             if (--eventRepeatCount <= 0)
             {
@@ -48,9 +52,6 @@ namespace DHEventSystem.Proxies
             }
         }
 
-        private void RaiseUnityEvent()
-        {
-            onGameEventTriggered.Invoke();
-        }
+        protected abstract void RaiseUnityEvent(GameEventParameterType parameter);
     }
 }

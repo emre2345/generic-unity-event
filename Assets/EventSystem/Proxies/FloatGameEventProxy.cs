@@ -6,28 +6,16 @@ using UnityEngine.Events;
 
 namespace DHEventSystem.Proxies
 {
-    public class FloatGameEventProxy : MonoBehaviour, IEventListener<float>
+    public class FloatGameEventProxy : GameEventProxy<FloatGameEvent, float>
     {
         [Serializable]
         public class Event : UnityEvent<float>
         {
         }
 
-        [SerializeField] private FloatGameEvent gameEvent;
-
         [SerializeField] private Event OnGameEventTriggered;
 
-        private void OnEnable()
-        {
-            gameEvent.AddListener(this);
-        }
-
-        private void OnDisable()
-        {
-            gameEvent.RemoveListener(this);
-        }
-
-        public void OnEventRaised(float parameter)
+        protected override void RaiseUnityEvent(float parameter)
         {
             OnGameEventTriggered.Invoke(parameter);
         }
