@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace DHEventSystem.GameEvents
 {
+    [CreateAssetMenu(menuName = "Framework/Game Events/" + nameof(TriggerGameEvent))]
     public class TriggerGameEvent : GameEvent<Collider>
     {
         public override ScriptableObject GetSerializedParameter()

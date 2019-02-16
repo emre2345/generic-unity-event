@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace DHEventSystem.GameEvents
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(menuName = "Framework/Game Events/" + nameof(IntGameEvent))]
     public class IntGameEvent : GameEvent<int>
     {
         public override ScriptableObject GetSerializedParameter()

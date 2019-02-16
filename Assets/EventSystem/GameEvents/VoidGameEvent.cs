@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace DHEventSystem.GameEvents
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(menuName = "Framework/Game Events/" + nameof(VoidGameEvent))]
     public class VoidGameEvent : GameEvent
     {
         public override ScriptableObject GetSerializedParameter()
