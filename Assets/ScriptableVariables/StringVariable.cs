@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace ScriptableVariables
+namespace DHScriptableVariables.ScriptableVariables
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(menuName = "Framework/Variables/" + nameof(StringVariable))]
     public class StringVariable : ScriptableVariable<string>
     {
         

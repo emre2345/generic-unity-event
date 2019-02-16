@@ -1,9 +1,9 @@
 using System;
 using System.Reflection;
-using BaseClasses.VoidEvents;
 using DHEventSystem.BaseClasses;
+using DHEventSystem.BaseClasses.VoidEvents;
 using DHEventSystem.GameEvents;
-using ScriptableVariables;
+using DHScriptableVariables.ScriptableVariables;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;

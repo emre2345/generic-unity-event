@@ -5,12 +5,11 @@ using UnityEngine;
 
 namespace DHEventSystem.GameEvents
 {
-    [CreateAssetMenu]
-    public class CollisionGameEvent : GameEvent<Collision>
+    public class TriggerGameEvent : GameEvent<Collider>
     {
         public override ScriptableObject GetSerializedParameter()
         {
-            return CreateInstance(typeof(CollisionVariable));
+            return CreateInstance(typeof(ColliderVariable));
         }
     }
 }

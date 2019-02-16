@@ -1,4 +1,4 @@
-using BaseClasses.VoidEvents;
+using DHEventSystem.BaseClasses.VoidEvents;
 using UnityEngine;
 
 namespace DHEventSystem.GameEvents

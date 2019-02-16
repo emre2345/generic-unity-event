@@ -1,4 +1,4 @@
-namespace BaseClasses.VoidEvents
+namespace DHEventSystem.BaseClasses.VoidEvents
 {
     public interface IEventListener
     {

@@ -1,10 +1,12 @@
 using System;
 using DHEventSystem.BaseClasses;
+using DHEventSystem.BaseClasses.GenericEvents;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace DHEventSystem.Proxies
 {
+    [ExecuteAlways]
     public abstract class GameEventProxy<GameEventType, GameEventParameterType> : MonoBehaviour,
         IEventListener<GameEventParameterType>
         where GameEventType : GameEvent<GameEventParameterType>
@@ -38,11 +40,13 @@ namespace DHEventSystem.Proxies
             gameEvent.RemoveListener(this);
         }
 
+        private GameEventParameterType param;
         public void OnEventRaised(GameEventParameterType parameter)
         {
             if (--eventRepeatCount <= 0)
             {
-                Invoke("RaiseUnityEvent", delay);
+                this.param = parameter;
+                Invoke("RaiseEvent", delay);
 
                 if (raiseOnce)
                 {
@@ -50,6 +54,11 @@ namespace DHEventSystem.Proxies
                     gameEvent.RemoveListener(this);
                 }
             }
+        }
+
+        void RaiseEvent()
+        {
+            RaiseUnityEvent(param);
         }
 
         protected abstract void RaiseUnityEvent(GameEventParameterType parameter);

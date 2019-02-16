@@ -1,4 +1,4 @@
-using BaseClasses.VoidEvents;
+using DHEventSystem.BaseClasses.VoidEvents;
 using DHEventSystem.GameEvents;
 using UnityEngine;
 using UnityEngine.Events;

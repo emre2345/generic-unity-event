@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using ScriptableVariables;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class IntVariable : ScriptableVariable<int>
+namespace DHScriptableVariables.ScriptableVariables
 {
+    [CreateAssetMenu(menuName = "Framework/Variables/" + nameof(StringVariable))]
+    public class IntVariable : ScriptableVariable<int>
+    {
+    }
 }

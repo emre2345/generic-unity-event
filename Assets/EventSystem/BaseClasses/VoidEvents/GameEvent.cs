@@ -1,8 +1,7 @@
 using System.Collections.Generic;
-using DHEventSystem.BaseClasses;
 using UnityEngine;
 
-namespace BaseClasses.VoidEvents
+namespace DHEventSystem.BaseClasses.VoidEvents
 {
     public abstract class GameEvent : BaseGameEvent, IEvent
     {

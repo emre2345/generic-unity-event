@@ -1,4 +1,4 @@
-namespace DHEventSystem.BaseClasses
+namespace DHEventSystem.BaseClasses.GenericEvents
 {
     public interface IEventListener<T>
     {

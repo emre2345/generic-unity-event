@@ -1,17 +1,23 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace DHEventSystem.BaseClasses
+namespace DHEventSystem.BaseClasses.GenericEvents
 {
     public abstract class GameEvent<T> : BaseGameEvent, IEvent<T>
     {
-        protected List<IEventListener<T>> listeners;
-    
-        private void OnEnable()
-        {
-            listeners = new List<IEventListener<T>>();
-        }
+        private List<IEventListener<T>> listeners;
 
+        protected List<IEventListener<T>> Listeners
+        {
+            get
+            {
+                if(listeners == null)
+                    listeners = new List<IEventListener<T>>();
+
+                return listeners;
+            }
+        }
+    
         public void AddListener(IEventListener<T> listener)
         {
             if (!listeners.Contains(listener))

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ScriptableVariables
+namespace DHScriptableVariables.ScriptableVariables
 {
     public class ScriptableVariable<T> : BaseScriptableVariable
     {

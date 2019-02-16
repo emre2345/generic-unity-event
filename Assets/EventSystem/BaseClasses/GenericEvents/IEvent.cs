@@ -1,6 +1,4 @@
-using System.Runtime.CompilerServices;
-
-namespace DHEventSystem.BaseClasses
+namespace DHEventSystem.BaseClasses.GenericEvents
 {
     public interface IEvent<T>
     {

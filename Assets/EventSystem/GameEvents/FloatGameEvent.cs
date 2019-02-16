@@ -1,5 +1,6 @@
 using DHEventSystem.BaseClasses;
-using ScriptableVariables;
+using DHEventSystem.BaseClasses.GenericEvents;
+using DHScriptableVariables.ScriptableVariables;
 using UnityEngine;
 
 namespace DHEventSystem.GameEvents
